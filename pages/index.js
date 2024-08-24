@@ -3,7 +3,7 @@ import axios from 'axios';
 import { GoSignOut } from 'react-icons/go';
 import { useRouter } from 'next/router';
 import { useAuth } from '@/Firebase/auth';
-import Loader from '@/components/Loader';
+import Loader from '@/Components/Loader';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -92,7 +92,7 @@ const GiphySearch = () => {
     // Display loader if user is not authenticated
     <Loader />
   ) : (
-    <div className="max-w-5xl mx-auto p-6 bg-gray-200 min-h-screen">
+    <div className="bg-gray-100 min-h-screen p-6">
       {/* Logout button */}
       <div
         className="bg-black text-white w-44 py-2 rounded-lg transition-transform hover:bg-black/[0.8] active:scale-90 flex items-center justify-center gap-2 font-medium shadow-md fixed bottom-5 right-5 cursor-pointer"
@@ -114,7 +114,7 @@ const GiphySearch = () => {
         <h1 className="text-4xl font-bold text-gray-800">Giphy GIF Search</h1>
       </div>
 
-      <div className="bg-white p-8 rounded-lg shadow-lg">
+      <div className="bg-white p-8 rounded-lg shadow-lg mx-auto max-w-4xl">
         {/* Search form */}
         <form onSubmit={handleSubmit} className="flex items-center mb-8">
           <input
@@ -122,7 +122,7 @@ const GiphySearch = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search for GIFs"
-            className="w-full p-3 border border-gray-300 rounded-lg text-lg"
+            className="w-full p-3 border border-gray-300 rounded-lg bg-gray-200 text-lg"
           />
           <button
             type="submit"

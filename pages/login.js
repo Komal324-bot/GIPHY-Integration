@@ -93,7 +93,7 @@ const LoginForm = () => {
                             className="bg-black text-white w-44 py-4 mt-10 rounded-full transition-transform hover:bg-black/[0.8] active:scale-90"
                             onClick={loginHandler}
                         >
-                            Sign in
+                            Login
                         </button>
                     </form>
                 </div>

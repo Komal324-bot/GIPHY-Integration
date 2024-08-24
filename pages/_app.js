@@ -4,7 +4,7 @@ export default function App({ Component, pageProps }) {
     return (
         <>
             <Head>
-                <title>JS Dev - Todo App</title>
+                <title>GIF Integration</title>
             </Head>
             <Component {...pageProps} />
         </>

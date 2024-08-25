@@ -42,4 +42,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Screenshots
+### Login
+<img width="956" alt="Screenshot 2024-08-25 211830" src="https://github.com/user-attachments/assets/dfdbe9c5-9ec2-4540-b088-10e5ce4ba2f7">
+
+### Signup
+<img width="946" alt="Screenshot 2024-08-25 211854" src="https://github.com/user-attachments/assets/f7fcf376-a45f-4058-a860-d5adad3e6e28">
+
+### Main Page
+<img width="956" alt="Screenshot 2024-08-25 211709" src="https://github.com/user-attachments/assets/a35caf71-098d-4b39-a855-3bf13663b420">
 

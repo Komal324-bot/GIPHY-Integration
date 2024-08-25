@@ -12,6 +12,7 @@ import { useAuth } from "@/Firebase/auth";
 import Link from "next/link";
 import Loader from "@/Components/Loader";
 
+// Creating an instance of GoogleAuthProvider
 const Provider = new GoogleAuthProvider();
 
 const LoginForm = () => {
@@ -19,13 +20,13 @@ const LoginForm = () => {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const { authUser, isLoading } = useAuth();
-
+    // Redirect to home page if user is authenticated and not loading
     useEffect(() => {
         if (!isLoading && authUser) {
             router.push("/");
         }
     }, [authUser, isLoading]);
-
+    // Function to handle login with email and password
     const loginHandler = async () => {
         if (!email || !password) return;
         try {
@@ -34,7 +35,7 @@ const LoginForm = () => {
             console.error("An error occured", error);
         }
     };
-
+    // Function to handle login with Google
     const signInWithGoogle = async () => {
         try {
             await signInWithPopup(auth, Provider);
@@ -42,10 +43,11 @@ const LoginForm = () => {
             console.error("An error occured", error);
         }
     };
-
+    // Render the loader if the app is loading or the user is already authenticated
     return isLoading || (!isLoading && !!authUser) ? (
         <Loader />
     ) : (
+        // Main login form layout
         <main className="flex lg:h-[100vh]">
             <div className="w-full lg:w-[60%] p-8 md:p-14 flex items-center justify-center lg:justify-start">
                 <div className="p-8 w-[600px]">

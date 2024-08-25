@@ -21,13 +21,14 @@ const RegisterForm = () => {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const { authUser, isLoading, setAuthUser } = useAuth();
-
+// Redirect to home page if user is authenticated and not loading
     useEffect(() => {
         if (!isLoading && authUser) {
             router.push("/");
         }
     }, [authUser, isLoading]);
 
+// Function to handle sign-up with email and password
     const singupHandler = async () => {
         if (!email || !password || !username) return;
         try {
@@ -35,7 +36,7 @@ const RegisterForm = () => {
                 auth,
                 email,
                 password
-            );
+            ); // Firebase method to create a new user
             await updateProfile(auth.currentUser, {
                 displayName: username,
             });
@@ -43,20 +44,23 @@ const RegisterForm = () => {
                 uid: user.uid,
                 email: user.email,
                 username,
-            });
+            });  // Setting the authenticated user
         } catch (error) {
             console.error("An error occured", error);
         }
     };
 
+      // Function to handle login with Google
     const signInWithGoogle = async () => {
         const user = await signInWithPopup(auth, Provider);
         console.log(user);
     };
 
+    // Render the loader if the app is loading or the user is already authenticate
     return isLoading || (!isLoading && !!authUser) ? (
         <Loader />
     ) : (
+        // Main registration form layout
         <main className="flex lg:h-[100vh]">
             <div className="w-full lg:w-[60%] p-8 md:p-14 flex items-center justify-center lg:justify-start">
                 <div className="p-8 w-[600px]">
@@ -124,6 +128,7 @@ const RegisterForm = () => {
                 className="w-[40%] bg-slate-400 bg-cover bg-right-top hidden lg:block"
                 style={{
                     backgroundImage: "url('/login-banner.jpg')",
+                    minHeight: '100vh',
                 }}
             ></div>
         </main>
